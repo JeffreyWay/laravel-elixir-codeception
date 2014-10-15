@@ -1,0 +1,21 @@
+{
+  "name": "laravel-elixir-codeception",
+  "version": "0.1.1",
+  "description": "Laravel Elixir wrapper around Codeception Gulp task.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "gulp",
+    "laravel",
+    "elixir"
+  ],
+  "author": "Jeffrey Way",
+  "license": "MIT",
+  "dependencies": {
+    "gulp-codeception": "^0.4.3",
+    "gulp-notify": "^2.0.0",
+    "underscore": "^1.7.0"
+  }
+}
