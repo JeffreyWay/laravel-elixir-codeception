@@ -11,7 +11,7 @@ var _ = require('underscore');
  |
  | This task will trigger your entire Codeception test suite and
  | will show notifications indicating the success or failure
- | of that test suite. It's works great with the tdd task.
+ | of that test suite. It works great with the tdd task.
  |
  */
 
