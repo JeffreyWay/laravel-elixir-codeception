@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-codeception",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Laravel Elixir wrapper around Codeception Gulp task.",
   "main": "index.js",
   "scripts": {
@@ -9,10 +9,16 @@
   "keywords": [
     "gulp",
     "laravel",
-    "elixir"
+    "elixir",
+    "codeception"
   ],
   "author": "Jeffrey Way",
   "license": "MIT",
+  "homepage": "https://github.com/JeffreyWay/laravel-elixir-codeception",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JeffreyWay/laravel-elixir-codeception"
+  },
   "dependencies": {
     "gulp-codeception": "^0.4.3",
     "gulp-notify": "^2.0.0",
