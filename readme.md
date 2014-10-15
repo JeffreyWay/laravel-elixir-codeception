@@ -27,6 +27,12 @@ Defaulting to './tests', this argument specifies the root directory to search fo
 If you need to pass any Codeception-specific options, then you may pass an object as the second argument, like so:
 
 ```
-mix.codeception({ flags: '--report' });
+mix.codeception(null, { flags: '--report' });
+```
+
+Or, maybe you only want to trigger your "functional" suite.
+
+```
+mix.codeception(null, { testSuite: 'functional' });
 ```
 
