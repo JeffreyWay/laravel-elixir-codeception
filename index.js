@@ -1,8 +1,7 @@
-var elixir = require('laravel-elixir');
-var gulp = require('gulp');
+var Elixir = require('laravel-elixir');
 var codecept = require('gulp-codeception');
-var notify = require('gulp-notify');
 var _ = require('underscore');
+var runTests = require('laravel-elixir/tasks/shared/Tests')
 
 /*
  |----------------------------------------------------------------
@@ -15,34 +14,17 @@ var _ = require('underscore');
  |
  */
 
-elixir.extend('codeception', function(baseDir, options) {
-
-    baseDir = baseDir || 'tests';
+Elixir.extend('codeception', function(src, options) {
+    src = src || 'tests';
     options = _.extend({
-        clear: true, notify: true
+        clear: true,
+        notify: true
     }, options);
 
-    gulp.task('codeception', function() {
-       gulp.src('')
-           .pipe(codecept('', options))
-           .on('error', notify.onError({
-               title: 'Red!',
-               message: 'Your Codeception tests failed!',
-               icon: __dirname + '/../laravel-elixir/icons/fail.png'
-           }))
-           .pipe(notify({
-               title: 'Green!',
-               message: 'Your Codeception tests passed!',
-               icon: __dirname + '/../laravel-elixir/icons/pass.png'
-           }));
+    runTests({
+        name: 'codeception',
+        src: src + '/**/*+(Test|Cept|Cest).php',
+        plugin: codecept,
+        pluginOptions: options
     });
-
-    this.queueTask('codeception');
-
-    this.registerWatcher('codeception', [
-        baseDir + '/**/*+(Test|Cept|Cest).php',
-        'app/**/*.php'
-    ], 'tdd');
-
 });
-
