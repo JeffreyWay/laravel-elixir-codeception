@@ -1,6 +1,6 @@
 {
   "name": "laravel-elixir-codeception",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Laravel Elixir wrapper around Codeception Gulp task.",
   "main": "index.js",
   "scripts": {
