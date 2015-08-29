@@ -1,7 +1,9 @@
+var _ = require('underscore');
 var Elixir = require('laravel-elixir');
 var codecept = require('gulp-codeception');
-var _ = require('underscore');
-var runTests = require('laravel-elixir/tasks/shared/Tests')
+var runTests = require('laravel-elixir/tasks/shared/Tests');
+
+var config = Elixir.config;
 
 /*
  |----------------------------------------------------------------
@@ -15,16 +17,20 @@ var runTests = require('laravel-elixir/tasks/shared/Tests')
  */
 
 Elixir.extend('codeception', function(src, options) {
-    src = src || 'tests';
-    options = _.extend({
-        clear: true,
-        notify: true
-    }, options);
+    config.testing.codeception = {
+        path: 'tests',
+
+        options: {
+            clear: true,
+            notify: true
+        }
+    };
 
     runTests({
         name: 'codeception',
-        src: src + '/**/*+(Test|Cept|Cest).php',
+        src: src || (config.testing.codeception.path + '/**/*+(Test|Cept|Cest).php'),
         plugin: codecept,
-        pluginOptions: options
+        pluginOptions: options || config.testing.codeception.options
     });
 });
+
